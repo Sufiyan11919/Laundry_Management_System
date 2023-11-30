@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -17,9 +20,16 @@ const Home = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+
+    try {
+      const response = await axios.post('api call', formData);
+      console.log('Form submitted successfully:', response.data);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+    navigate('/main');
   };
 
   return (
@@ -28,12 +38,12 @@ const Home = () => {
       <form className="form" onSubmit={handleSubmit}>
         <label className="label">
           Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required className="input"/>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required className="input" />
         </label>
         <br />
         <label className="label">
           Phone:
-          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="input"/>
+          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="input" />
         </label>
         <br />
         <label className="label">
