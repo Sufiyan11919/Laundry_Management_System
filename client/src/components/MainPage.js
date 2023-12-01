@@ -1,6 +1,6 @@
+// src/MainPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const MainPage = () => {
   return (
     <div className="main-container">
@@ -19,7 +19,9 @@ const MainPage = () => {
       </nav>
       <div className="content">
         <h1>Main Page</h1>
-        <button className="center-button">Create</button>
+        <Link to="/order">
+          <button className="center-button">Create</button>
+        </Link>
       </div>
     </div>
   );
