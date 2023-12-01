@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './styles.css'; 
 
@@ -21,7 +20,6 @@ const UserForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to server
     console.log('Form submitted:', formData);
     // You can add logic here to send data to your backend or perform any necessary actions
   };

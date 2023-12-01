@@ -152,3 +152,15 @@
     margin-top: 20px;
   }
   
+  /* *******************************
+   */
+   .bill-section {
+    border: 2px solid #333; /* Set your desired border properties */
+    padding: 10px;
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  
+  .bill-section h2 {
+    margin-bottom: 10px;
+  }
+  
