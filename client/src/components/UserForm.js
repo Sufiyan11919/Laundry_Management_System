@@ -21,8 +21,7 @@ const UserForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // You can add logic here to send data to your backend or perform any necessary actions
-  };
+     };
 
   return (
     <form className="form" onSubmit={handleSubmit}>

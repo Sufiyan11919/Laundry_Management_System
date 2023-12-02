@@ -4,7 +4,7 @@ import Home from './components/Home'
 import './style.css'
 import MainPage from './components/MainPage'
 import OrderPage from './components/OrderPage'
-import BillPage from './components/BillPage';
+// import BillPage from './components/BillPage';
 const App = () => {
   return (
     

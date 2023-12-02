@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useLocation } from 'react-router-dom';
+// import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const OrderPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+const orderDetails = location.state && location.state.orderDetails;
+  // console.log(location.state); 
+console.log("order details", orderDetails); 
+
+
   const [quantities, setQuantities] = useState({
     shirt: 0,
     pant: 0,
@@ -61,28 +69,44 @@ const OrderPage = () => {
     if (selectedOptions[cloth].pack) {
       total += packCost * quantities[cloth];
     }
-
     return total;
   };
 
   const totalCostShirt = calculateTotalCost('shirt');
   const totalCostPant = calculateTotalCost('pant');
   const totalCostCoat = calculateTotalCost('coat');
-
   const handleProceed = () => {
     setProceedClicked(true);
   };
 
-  const sendToServer = async () => {
-    const totalBill = totalCostShirt + totalCostPant + totalCostCoat;
+  const generateOrderId = () => {
+    return Math.floor(Math.random() * 100000);
+  };
 
-    try {
-    
-      await axios.post('api to database', { totalBill });
-      console.log('Data sent to the server successfully!');
-    } catch (error) {
-      console.error('Error sending data to the server:', error);
-    }
+  const sendToServer = async () => {
+    const formData = {
+      ...orderDetails,
+      order: {
+        shirt: { quantity: quantities.shirt, options: selectedOptions.shirt },
+        pant: { quantity: quantities.pant, options: selectedOptions.pant },
+        coat: { quantity: quantities.coat, options: selectedOptions.coat },
+      },
+    };
+
+    const totalBill = totalCostShirt + totalCostPant + totalCostCoat;
+    const orderId = generateOrderId();
+    console.log('Form Data:', formData);
+    console.log('Total Bill:', totalBill);
+    console.log('Order ID:', orderId);
+
+    // try {
+    //   await axios.post('api call to Google database', { formData, totalBill, orderId });
+    //   console.log('Data sent to the server successfully!');
+    // } catch (error) {
+    //   console.error('Error sending data to the server:', error);
+    // }
+    navigate('/main');
+
   };
 
   return (
@@ -107,7 +131,12 @@ const OrderPage = () => {
         </p>
         <table>
           <thead>
-            <tr> <th>Cloths</th> <th>Quantity</th> <th>Wash Type</th> <th>Price</th> <th>Reset</th>
+            <tr>
+              <th>Cloths</th>
+              <th>Quantity</th>
+              <th>Wash Type</th>
+              <th>Price</th>
+              <th>Reset</th>
             </tr>
           </thead>
           <tbody>

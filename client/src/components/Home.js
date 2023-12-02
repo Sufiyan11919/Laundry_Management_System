@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -23,13 +23,14 @@ const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post('api call is here', formData);
-      console.log('Form submitted successfully:', response.data);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
-    navigate('/main');
+    // try {
+    //   const response = await axios.post('api call is here', formData);
+    //   console.log('Form submitted successfully:', response.data);
+    // } catch (error) {
+    //   console.error('Error submitting form:', error);
+    // }
+    navigate('/main', { state: { orderDetails: formData } });
+    // navigate('/main');
   };
 
   return (
