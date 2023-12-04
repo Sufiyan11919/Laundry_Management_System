@@ -164,3 +164,81 @@
     margin-bottom: 10px;
   }
   
+  /* Add this to your existing CSS file or create a new one */
+.button {
+  /* Your existing button styles */
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+.selected {
+  /* Add this style for the selected buttons */
+  background-color: #2ecc71;
+}
+
+/* Add this style for the proceed button */
+.proceed-button {
+  padding: 25px;
+  background-color: #27ae60;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.proceed-button:hover {
+  background-color: #219d53;
+}
+
+.confirm-button {
+  /* Add this style for the confirm button */
+  padding: 20px;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.confirm-button:hover {
+  background-color: #c0392b;
+}
+
+/* Add this style for the ellipsis effect */
+.content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#washButton{
+  padding: 15px 25px; /* Adjust the padding to set the dimensions */
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  background-color: gray;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+#washButton:hover{
+  background-color: navy;
+}
