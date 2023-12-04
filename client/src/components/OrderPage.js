@@ -154,7 +154,7 @@ console.log("order details", orderDetails);
                   <tbody>
                     <tr>
                       <td>
-                        <button
+                        <button id='washButton'
                           onClick={() => handleOptionToggle('shirt', 'wash')}
                           className={selectedOptions.shirt.wash ? 'selected' : ''}
                         >
@@ -162,7 +162,7 @@ console.log("order details", orderDetails);
                         </button>
                       </td>
                       <td>
-                        <button
+                      <button id='washButton'
                           onClick={() => handleOptionToggle('shirt', 'iron')}
                           className={selectedOptions.shirt.iron ? 'selected' : ''}
                         >
@@ -170,7 +170,7 @@ console.log("order details", orderDetails);
                         </button>
                       </td>
                       <td>
-                        <button
+                      <button id='washButton'
                           onClick={() => handleOptionToggle('shirt', 'pack')}
                           className={selectedOptions.shirt.pack ? 'selected' : ''}
                         >
@@ -201,15 +201,14 @@ console.log("order details", orderDetails);
                   <tbody>
                     <tr>
                       <td>
-                        <button
+                      <button id='washButton'
                           onClick={() => handleOptionToggle('pant', 'wash')}
                           className={selectedOptions.pant.wash ? 'selected' : ''}
                         >
                           Wash
                         </button>
                       </td>
-                      <td>
-                        <button
+                      <td><button id='washButton'
                           onClick={() => handleOptionToggle('pant', 'iron')}
                           className={selectedOptions.pant.iron ? 'selected' : ''}
                         >
@@ -217,7 +216,7 @@ console.log("order details", orderDetails);
                         </button>
                       </td>
                       <td>
-                        <button
+                      <button id='washButton'
                           onClick={() => handleOptionToggle('pant', 'pack')}
                           className={selectedOptions.pant.pack ? 'selected' : ''}
                         >
@@ -248,7 +247,7 @@ console.log("order details", orderDetails);
                   <tbody>
                     <tr>
                       <td>
-                        <button
+                      <button id='washButton'
                           onClick={() => handleOptionToggle('coat', 'wash')}
                           className={selectedOptions.coat.wash ? 'selected' : ''}
                         >
@@ -256,7 +255,7 @@ console.log("order details", orderDetails);
                         </button>
                       </td>
                       <td>
-                        <button
+                      <button id='washButton'
                           onClick={() => handleOptionToggle('coat', 'iron')}
                           className={selectedOptions.coat.iron ? 'selected' : ''}
                         >
@@ -264,7 +263,7 @@ console.log("order details", orderDetails);
                         </button>
                       </td>
                       <td>
-                        <button
+                      <button id='washButton'
                           onClick={() => handleOptionToggle('coat', 'pack')}
                           className={selectedOptions.coat.pack ? 'selected' : ''}
                         >
