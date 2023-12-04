@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-// import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LoginForm from './LoginForm';
 
 const Home = () => {
+const [user, setUser] = useState(null);
 const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    googleId: '',
     name: '',
     phone: '',
     zipcode: '',
     address: '',
-    googleId: '',
   });
 
   const handleChange = (e) => {
@@ -22,7 +24,12 @@ const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    try {
+      const response = axios.post('https://laundrymanagementsystembackend.ue.r.appspot.com/api/UserInfo/saveUserInfo', formData);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
     // try {
     //   const response = await axios.post('api call is here', formData);
     //   console.log('Form submitted successfully:', response.data);
@@ -33,8 +40,22 @@ const navigate = useNavigate();
     // navigate('/main');
   };
 
+  function handleLogin(user){
+    setUser(user);
+  }
+
+  useEffect(() => {
+    if (user) {
+      setFormData((prevData) => ({
+        ...prevData,
+        googleId: user.uid,
+      }));
+    }
+  }, [user]); 
+
   return (
     <div className="container">
+      <LoginForm LoginEvent={handleLogin}/>
       <h1 className="heading">Welcome to Our Laundry Services</h1>
       <form className="form" onSubmit={handleSubmit}>
         <label className="label">
@@ -55,11 +76,6 @@ const navigate = useNavigate();
         <label className="label">
           Address:
           <textarea name="address" value={formData.address} onChange={handleChange} required className="input" />
-        </label>
-        <br />
-        <label className="label">
-          Google ID:
-          <input type="text" name="googleId" value={formData.googleId} onChange={handleChange} required className="input" />
         </label>
         <br />
         <button type="submit" className="button">
